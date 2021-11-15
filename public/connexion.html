@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./normalize.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+    <title>Gestionnaire de Taches</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="title">GESTIONNAIRE DE TACHES</h1>
+        <form class="single-task-form">
+          <h4>CONNEXION</h4>
+          <div class="form-control">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" class="pseudo" name="pseudo" class="task-input" />
+          </div>
+          <div class="form-control">
+            <label for="mp">Mot de passe</label>
+            <input type="password" class="password" name="mp" class="task-input" />
+          </div>
+          
+          <button type="submit" class="btn submit-login">Connexion</button>
+          <div class="form-alert"></div>
+        </form>
+      </div>
+      <script src="connexion.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
