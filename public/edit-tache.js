@@ -7,6 +7,22 @@ const formAlertDOM = document.querySelector('.form-alert')
 const params = window.location.search
 const id = new URLSearchParams(params).get('id')
 let tempName
+const userNamePanel = document.querySelector('.userName')
+const logout = document.querySelector('.logout')
+
+logout.addEventListener('click', (e)=>{
+  sessionStorage.removeItem('uid')
+  sessionStorage.removeItem('keytok')
+  window.location.replace('connexion.html')
+})
+
+axios({
+  method: 'get',
+  url: `/api/v1/utilisateurs/${sessionStorage.getItem('uid')}`,
+  responseType: 'json'
+}).then(function(response){
+  userNamePanel.innerHTML = response.data.ok.pseudo
+})
 
 const showTask = async () => {
   try {

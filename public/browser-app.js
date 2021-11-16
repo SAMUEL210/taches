@@ -17,7 +17,6 @@ axios({
   url: `/api/v1/utilisateurs/${sessionStorage.getItem('uid')}`,
   responseType: 'json'
 }).then(function(response){
-  console.log(response)
   userNamePanel.innerHTML = response.data.ok.pseudo
 })
 
