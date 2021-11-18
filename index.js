@@ -17,7 +17,7 @@ bd.once('open', () => { console.log('STATUT BD : ', bd.states[bd._readyState])})
 
 app.use(express.static('./public'))
 app.use(express.json())
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*" }))
 app.use('/api/v1/login', login)
 app.use('/api/v1/taches', taches)
 app.use('/api/v1/utilisateurs', utilisateur)

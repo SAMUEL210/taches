@@ -29,13 +29,22 @@ const showTask = async () => {
     const {
       data: { tache },
     } = await axios.get(`/api/v1/taches/${id}`)
-    const { _id: taskID, completed, name } = tache
-
-    taskIDDOM.textContent = taskID
-    taskNameDOM.value = name
-    tempName = name
-    if (completed) {
-      taskCompletedDOM.checked = true
+    const { _id: taskID, completed, name, uid } = tache
+    if( uid !== sessionStorage.getItem('uid')){
+      let p =  document.createElement('p')
+      p.innerHTML = "Vous n'êtes pas le proprietaire de cette tache"
+      formAlertDOM.innerHTML = p.innerHTML
+      taskIDDOM.remove()
+      taskNameDOM.remove()
+      taskCompletedDOM.remove()
+      editBtnDOM.remove()
+    }else{
+      taskIDDOM.textContent = taskID
+      taskNameDOM.value = name
+      tempName = name
+      if (completed) {
+        taskCompletedDOM.checked = true
+      }
     }
   } catch (error) {
     console.log(error)
