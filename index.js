@@ -15,7 +15,7 @@ var bd = mongoose.connection
 bd.on('error', console.error.bind('ERREUR CONNECTION'))
 bd.once('open', () => { console.log('STATUT BD : ', bd.states[bd._readyState])})
 
-app.use(express.static('./public'))
+app.use(express.static('./public/'))
 app.use(express.json())
 app.use(cors({ origin: "*" }))
 app.use('/api/v1/login', login)
