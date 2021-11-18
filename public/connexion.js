@@ -33,7 +33,6 @@ connexion.addEventListener('click', (e)=>{
             responseType: 'json'
         })
         .then(function(reponse) {
-            console.log(reponse.data)
             if (reponse.data.error) {
                 let p = document.createElement('p')
                 p.innerHTML = reponse.data.error
