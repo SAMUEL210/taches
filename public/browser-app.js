@@ -86,11 +86,11 @@ formDOM.addEventListener('submit', async (e) => {
     showTasks()
     taskInputDOM.value = ''
     formAlertDOM.style.display = 'block'
-    formAlertDOM.textContent = `success, Tache ajouté`
+    formAlertDOM.textContent = `Tache ajouté!`
     formAlertDOM.classList.add('text-success')
   } catch (error) {
     formAlertDOM.style.display = 'block'
-    formAlertDOM.innerHTML = `erreur, réessayer svp!`
+    formAlertDOM.innerHTML = `Erreur, réessayer svp!`
   }
   setTimeout(() => {
     formAlertDOM.style.display = 'none'

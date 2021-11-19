@@ -12,3 +12,9 @@ Interface simple, propre
 - Node JS (Express JS, Mongo DB) => API Backend
 - HTML/CSS Javascript => Frontend App
 - Axios (API Rest) => Connexion Font-Back
+
+#Pages
+ - Connexion
+ - Creer compte
+ - Accueil => ajout tache et visuel sur mes taches
+ - Modifier une tache

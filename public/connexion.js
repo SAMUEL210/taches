@@ -2,9 +2,6 @@ const connexion = document.querySelector('.submit-login')
 const pseudo = document.querySelector('.pseudo')
 const password = document.querySelector('.password')
 const alertMessage = document.querySelector('.form-alert')
-const showHidePassword = document.getElementById('showPassword')
-
-
 
 connexion.addEventListener('click', (e)=>{
     e.preventDefault()

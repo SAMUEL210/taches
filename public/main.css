@@ -131,6 +131,12 @@ header{
   box-shadow: none;
 }
 
+.liens{
+  text-decoration: underline;
+}
+.task-edit-id{
+  overflow-x: hidden;
+}
 header> *{
   margin: 10px;
   color: white;
@@ -252,8 +258,9 @@ textarea {
 .form-alert {
   color: var(--red-dark);
   letter-spacing: var(--letterSpacing);
-  text-transform: capitalize;
+  font-style: italic;
 }
+
 .title{
   text-align: center;
   margin: 2vh;

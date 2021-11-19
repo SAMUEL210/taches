@@ -8,15 +8,16 @@ const utilisateurSchema = new mongoose.Schema({
         type: String,
         required: [true, "Vous devez avoir un pseudo"],
         trim: true,
+        lowercase: true,
         maxlenght: [20, "Votre pseudo doit fait max de 20 caractère"],
-        unique: [true, "Le pseudo existe déja!"]
+        //unique: [true, "Le pseudo existe déja!"]
     },
     email: {
         type: String,
-        validate: [isEmail, "Adresse mail incorecte!"],
+        //validate: [isEmail, "Adresse mail incorecte!"],
         required: true,
         lowercase: true,
-        unique: [true, "Cette adresse mail est déja associé à un compte"]
+        //unique: [true, "Cette adresse mail est déja associé à un compte"]
     },
     password: {
         type: String,
@@ -25,6 +26,13 @@ const utilisateurSchema = new mongoose.Schema({
 })
 
 utilisateurSchema.pre('save', async function(next){
+    let utillisateur = await utilisateurModel.findOne({ pseudo: this.pseudo})
+    let utilisateuremail = await utilisateurModel.findOne({ email: this.email})
+
+    if(isEmail(this.email) === false) next(Error("L'adresse mail est incorrecte!"))
+    if(utillisateur) next(Error('Le pseudo est déja utilisé!'))
+    if(utilisateuremail) next(Error("L'adresse mail est déja associé a un compte!"))
+    
     let salt = await bcrypt.genSalt()
     this.password = await bcrypt.hash(this.password, salt)
     next()
@@ -35,4 +43,5 @@ utilisateurSchema.pre('deleteOne', async function(next){
     next()
 })
 
-module.exports  = mongoose.model('utilisateur', utilisateurSchema)
+var utilisateurModel = mongoose.model('utilisateur', utilisateurSchema)
+module.exports  = utilisateurModel

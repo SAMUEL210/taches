@@ -21,22 +21,30 @@
     <div class="container">
         <h1 class="title">GESTIONNAIRE DE TACHES</h1>
         <form class="single-task-form">
-          <h4>CONNEXION</h4>
+          <h4>INSCRIPTION</h4>
           <div class="form-control">
             <label for="pseudo">Pseudo</label>
-            <input type="text" class="pseudo" name="pseudo" class="task-input" />
+            <input type="text" name="pseudo" class="pseudo task-input" />
+          </div>
+          <div class="form-control">
+            <label for="pseudo">email</label>
+            <input type="email" name="email" class="email task-input" />
           </div>
           <div class="form-control">
             <label for="mp">Mot de passe</label>
-            <input type="password" class="password" name="mp" class="task-input" />
+            <input type="password" name="mp" class="password task-input" />
+          </div>
+          <div class="form-control">
+            <label for="cmp">Confirmer MP</label>
+            <input type="password" name="cmp" class="cpassword task-input" />
           </div>
           
-          <button type="submit" class="btn submit-login">Connexion</button>
+          <button type="submit" class="btn submit-signup">Creer compte</button>
           <div class="form-alert"></div>
-          Pas de compte, <a class="liens" href="inscription.html">creer un compte!</a>
+          <a class="liens" href="connexion.html">Se connecter</a>
         </form>
       </div>
-      <script src="connexion.js"></script>
+      <script src="inscription.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
       integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="

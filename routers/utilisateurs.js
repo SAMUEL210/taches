@@ -11,7 +11,7 @@ router.post('/', async (req, rep)=>{
         await utilisateur.save()
         rep.send({ "ok": utilisateur })
     }catch(e){
-        rep.send({"error": e.message})
+        rep.send({error: e.message})
     }
 })
 
