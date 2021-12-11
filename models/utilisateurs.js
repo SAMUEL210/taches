@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const { isEmail } = require('validator')
 const tacheModel = require('../models/taches')
+const activerCompteModel = require('../models/activerCompte')
 
 const utilisateurSchema = new mongoose.Schema({
     pseudo: {
@@ -37,6 +38,17 @@ utilisateurSchema.pre('save', async function(next){
     this.password = await bcrypt.hash(this.password, salt)
     next()
 })
+
+utilisateurSchema.post('save', async function(next){
+    let body = {
+            uid: this._id,
+            email: this.email,
+            pseudo: this.pseudo
+        }
+    let creerActivationCompte = new activerCompteModel(body)
+    await creerActivationCompte.save()
+})
+
 
 utilisateurSchema.pre('deleteOne', async function(next){
     await tacheModel.deleteMany({ uid: this.id })
